@@ -82,8 +82,10 @@ class RandomPad(A.DualTransform):
         pad_height_total = self.target_size - height
         pad_width_total = self.target_size - width
 
+        random.seed(42)
         pad_top = random.randint(0, pad_height_total)
         pad_bottom = pad_height_total - pad_top
+        random.seed(42)
         pad_left = random.randint(0, pad_width_total)
         pad_right = pad_width_total - pad_left
     
@@ -136,8 +138,10 @@ class RandomResizeAndPad(A.DualTransform):
         pad_height_total = self.target_size - new_height
         pad_width_total = self.target_size - new_width
 
+        random.seed(42)
         pad_top = random.randint(0, pad_height_total)
         pad_bottom = pad_height_total - pad_top
+        random.seed(42)
         pad_left = random.randint(0, pad_width_total)
         pad_right = pad_width_total - pad_left
 
