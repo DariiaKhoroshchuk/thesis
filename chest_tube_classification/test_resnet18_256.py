@@ -96,8 +96,7 @@ def test(model, dataloader, criterion, device, model_name):
             all_scores.extend(probabilities[:, 1].cpu().numpy())
 
     accuracy = 100. * correct / total
-    print(f"Test loss: {test_loss / len(dataloader)}, Accuracy: {accuracy}%")
-    precision, recall, f1_score, _ = precision_recall_fscore_support(all_labels, all_preds, average='weighted')
+    _, _, f1_score, _ = precision_recall_fscore_support(all_labels, all_preds, average='weighted')
     print(f"Test loss: {test_loss / len(dataloader)}, Accuracy: {accuracy}%, F1 score: {f1_score}")
     cm = confusion_matrix(all_labels, all_preds)
     print("Confusion Matrix:")
